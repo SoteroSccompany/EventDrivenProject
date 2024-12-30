@@ -27,6 +27,8 @@ func main() {
 	}
 	defer db.Close()
 
+	database.InitializeDatabase(db)
+
 	configMap := ckafka.ConfigMap{
 		"bootstrap.servers": "kafka:29092",
 		"group.id":          "wallet",
