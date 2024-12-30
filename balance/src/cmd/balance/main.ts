@@ -37,8 +37,8 @@ export async function main() {
         app.get('/balance/:clientId', (req, res) => balanceHandle.execute(req, res));
 
         /*
-           1 - Realizar a populacao do banco de dados com os dados iniciais (wallet e balance)
            2 - Aqui deve ser implementado o código para ouvir o kafka
+           
         
         */
 
