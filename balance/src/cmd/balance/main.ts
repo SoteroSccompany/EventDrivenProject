@@ -6,10 +6,11 @@ import GetBalanceUsecase from '../../internal/usecase/get-balance/get-balance.us
 import SaveBalanceUsecase from '../../internal/usecase/save-balance/save-balance.usecase';
 import BalanceHandler from '../../internal/web/balance_handler';
 import { UsecaseGateway } from '../../internal/gateway/usecase.gateway';
+import { populateBalanceTable } from '../../internal/database/populate';
 
 
 
-export function main() {
+export async function main() {
     let connection: Kn;
     try {
         const app: Express = express();
@@ -19,12 +20,13 @@ export function main() {
             client: 'mysql2',
             connection: {
                 host: 'localhost',
-                port: 3306,
+                port: 3307,
                 database: 'balance',
                 user: 'root',
                 password: 'root'
             }
         });
+        await populateBalanceTable(connection);
         const port: number = 3003;
 
         const balanceDb: BalanceGateway = new BalanceRepository(connection);
