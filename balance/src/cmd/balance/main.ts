@@ -37,6 +37,7 @@ export async function main() {
         app.get('/balance/:clientId', (req, res) => balanceHandle.execute(req, res));
 
         /*
+           1 - Realizar a implementacao do event dispatcher
            2 - Aqui deve ser implementado o código para ouvir o kafka
            
         
