@@ -43,7 +43,7 @@ POST http://localhost:8080/transactions
 Content-Type: application/json
 
 {
-    "account_id_from": "a97fc7f0-cb08-4f1f-827c-c321c81b95d5",
-    "account_id_to": "59b0ab2e-0cf2-4b60-86bc-9a7405e3d6ba",
+    "account_id_from": "e0b13b3c-fb1b-43db-bc4b-a57082b949e6",
+    "account_id_to": "ff7da807-0ae6-4077-8294-2d649ec4cca3",
     "amount": 50
 }

@@ -15,6 +15,7 @@ describe("Event dispatcher test", () => {
         const events = eventDispatcher.getEventsHandlers
         expect(Object.keys(events).length).toBe(1)
         expect(events["BalanceUpdatedEvent"].length).toBe(1)
+        expect(events["BalanceUpdatedEvent"][0]).toBeInstanceOf(BalanceUpdatedHandler)
 
     });
 
@@ -61,6 +62,8 @@ describe("Event dispatcher test", () => {
 
         eventDispatcher.notify(event)
         expect(spyHandler).toHaveBeenCalled()
+        expect(spyHandler).toHaveBeenCalledWith(event)
+
 
     });
 

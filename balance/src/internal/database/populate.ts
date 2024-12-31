@@ -20,6 +20,7 @@ export async function populateBalanceTable(knex: Knex): Promise<void> {
                 table.uuid('id').primary();
                 table.decimal('balance').notNullable();
                 table.string('accountID').notNullable();
+                table.uuid('transactionID').nullable();
                 table.dateTime('createdAt').notNullable();
                 table.dateTime('updatedAt').notNullable();
             });
