@@ -24,7 +24,7 @@ export async function main() {
             client: 'mysql2',
             connection: {
                 host: 'mysqlBalance',
-                port: 3307,
+                port: 3306,
                 database: 'balance',
                 user: 'root',
                 password: 'root'
