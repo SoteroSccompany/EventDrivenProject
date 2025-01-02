@@ -16,7 +16,6 @@
   },
   "scripts": {
     "test": "npm run tsc -- --noEmit && jest",
-    "tsc": "tsc",
     "dev": "nodemon  --exec ts-node ./src/cmd/balance/main.ts",
     "start": "node ./dist/cmd/balance/main.js",
     "build": "tsc"

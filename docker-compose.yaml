@@ -82,7 +82,9 @@ services:
         dockerfile: Dockerfile
       platform: linux/amd64
       volumes:
+        - ./wait-for:/usr/local/bin/wait-for
         - ./wallet:/app
+      command: ["/usr/local/bin/wait-for", "kafka:29092","--timeout=120", "--", "go", "run", "./cmd/walletcore/main.go"]
       ports:
          - "8080:8080"
       depends_on:
@@ -94,7 +96,11 @@ services:
         dockerfile: Dockerfile
       platform: linux/amd64
       volumes:
-        - ./balance:/app
+         - ./wait-for:/usr/local/bin/wait-for
+         - ./balance/src:/app/src
+         - ./balance/package.json:/app/package.json
+         - ./balance/tsconfig.json:/app/tsconfig.json
+      command: ["/usr/local/bin/wait-for", "kafka:29092","--timeout=120", "--", "npm", "start"]
       ports:
          - "3003:3003"
       depends_on:
